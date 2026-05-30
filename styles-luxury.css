@@ -906,6 +906,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --lux-navy: #061120;
   --lux-navy-2: #0a1830;
   --lux-navy-3: #030813;
+  --deep-green: var(--lux-navy-2);
+  --forest-green: #17345a;
 }
 
 body { background: var(--lux-navy); }
@@ -954,6 +956,35 @@ body { background: var(--lux-navy); }
   box-shadow: 0 14px 30px rgba(0,0,0,.22);
 }
 
+.about {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(201,164,90,.13), transparent 34%),
+    linear-gradient(180deg, var(--lux-navy-3) 0%, var(--lux-navy) 52%, var(--lux-navy-2) 100%);
+}
+.about::before {
+  background:
+    linear-gradient(90deg, rgba(6,17,32,.88), rgba(6,17,32,.26)),
+    url('assets/hero-white-greenhouse-layer-v1.png') right center / cover no-repeat;
+  opacity: .28;
+}
+.about::after {
+  background: linear-gradient(90deg, transparent, rgba(201,164,90,.50), transparent);
+}
+.about__play:hover { background: #17345a; }
+
+.youtube-strip {
+  background:
+    radial-gradient(circle at 70% 0%, rgba(201,164,90,.14), transparent 34%),
+    linear-gradient(180deg, var(--lux-navy) 0%, var(--lux-navy-2) 100%);
+}
+.youtube-strip::before {
+  background:
+    linear-gradient(90deg, rgba(6,17,32,.18), transparent),
+    url('assets/hero-white-greenhouse-layer-v1.png') left center / cover no-repeat;
+  opacity: .16;
+}
+.youtube-track { background: rgba(3,8,19,.72); }
+
 .strengths,
 .recommend {
   color: var(--on-dark);
@@ -998,6 +1029,30 @@ body { background: var(--lux-navy); }
 .svc {
   border-color: rgba(17,20,15,.13);
   box-shadow: 0 16px 44px rgba(17,20,15,.12);
+}
+
+.svc__tag {
+  color: #17345a;
+  background: rgba(23,52,90,.08);
+  border-color: rgba(23,52,90,.14);
+}
+
+.contents {
+  background:
+    radial-gradient(circle at 82% 12%, rgba(201,164,90,.15), transparent 30%),
+    linear-gradient(180deg, var(--lux-navy-3), var(--lux-navy-2));
+}
+.contents::before {
+  background:
+    linear-gradient(180deg, rgba(6,17,32,.74), rgba(6,17,32,.84)),
+    url('assets/hero-white-greenhouse-layer-v1.png') right center / cover no-repeat;
+  opacity: .20;
+}
+.vision {
+  background: var(--lux-navy-2);
+}
+.vision::after {
+  background: linear-gradient(90deg, rgba(3,8,19,.90), rgba(6,17,32,.44), rgba(6,17,32,.14));
 }
 
 .network {
