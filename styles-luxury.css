@@ -902,28 +902,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* =========================================================
    LUXURY CONCEPT OVERRIDES
    ========================================================= */
-body { background: #07100b; }
+:root {
+  --lux-navy: #061120;
+  --lux-navy-2: #0a1830;
+  --lux-navy-3: #030813;
+}
 
-.concept-badge {
-  position: fixed;
-  right: max(16px, 2vw);
-  bottom: max(16px, 2vw);
-  z-index: 120;
-  padding: .65em 1em;
-  border: 1px solid rgba(201,164,90,.42);
-  border-radius: 999px;
-  background: rgba(6,12,8,.72);
-  color: var(--gold-soft);
-  backdrop-filter: blur(12px);
-  font-family: var(--font-display);
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .22em;
-  box-shadow: 0 16px 42px rgba(0,0,0,.28);
+body { background: var(--lux-navy); }
+
+.btn--primary {
+  background: linear-gradient(135deg, #07152a, #102542);
+  color: var(--on-dark);
+  box-shadow: 0 18px 46px rgba(3,8,19,.28);
 }
 
 .header.scrolled {
-  background: rgba(7,16,11,.88);
+  background: rgba(6,17,32,.88);
   border-bottom-color: rgba(201,164,90,.18);
 }
 .header.scrolled .logo__txt,
@@ -936,14 +930,14 @@ body { background: #07100b; }
 .hero {
   min-height: 100vh;
   color: var(--on-dark);
-  background: #030705;
+  background: var(--lux-navy-3);
 }
 .hero__bg img { filter: brightness(.70) contrast(1.08) saturate(1.08); }
 .hero__bg::after {
   background:
     radial-gradient(circle at 78% 18%, rgba(201,164,90,.18), transparent 30%),
-    linear-gradient(90deg, rgba(3,7,5,.92) 0%, rgba(3,7,5,.62) 38%, rgba(3,7,5,.18) 70%, rgba(3,7,5,.48) 100%),
-    linear-gradient(0deg, rgba(3,7,5,.86) 0%, rgba(3,7,5,.42) 30%, rgba(3,7,5,.10) 58%);
+    linear-gradient(90deg, rgba(3,8,19,.92) 0%, rgba(6,17,32,.64) 38%, rgba(6,17,32,.18) 70%, rgba(3,8,19,.50) 100%),
+    linear-gradient(0deg, rgba(3,8,19,.88) 0%, rgba(6,17,32,.44) 30%, rgba(6,17,32,.10) 58%);
 }
 .hero__content { text-shadow: 0 8px 36px rgba(0,0,0,.45); }
 .hero h1 { color: #fff; }
@@ -953,7 +947,7 @@ body { background: #07100b; }
 .btn--ghost-light {
   border: 1px solid rgba(244,243,236,.26);
   color: var(--on-dark);
-  background: rgba(7,16,11,.48);
+  background: rgba(6,17,32,.50);
 }
 .btn--ghost-light:hover {
   background: rgba(244,243,236,.10);
@@ -965,16 +959,27 @@ body { background: #07100b; }
   color: var(--on-dark);
   background:
     radial-gradient(circle at 16% 0%, rgba(181,138,58,.14), transparent 32%),
-    linear-gradient(180deg, #07100b, #111812);
+    linear-gradient(180deg, var(--lux-navy), var(--lux-navy-2));
 }
 .strengths::before { opacity: .18; }
+.recommend::before {
+  background:
+    linear-gradient(180deg, rgba(6,17,32,.84), rgba(6,17,32,.74)),
+    url('assets/hero-white-greenhouse-layer-v1.png') right center / cover no-repeat;
+  opacity: .58;
+}
 .strengths .section-title,
 .recommend .section-title { color: var(--on-dark); }
-.scard,
-.rcard {
+.scard {
   background: linear-gradient(180deg, rgba(244,243,236,.12), rgba(244,243,236,.045));
   border-color: rgba(244,243,236,.12);
   box-shadow: 0 26px 70px rgba(0,0,0,.24);
+}
+.rcard {
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.78));
+  border-color: rgba(255,255,255,.68);
+  box-shadow: 0 26px 70px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.86);
+  backdrop-filter: blur(14px);
 }
 .scard:hover,
 .rcard:hover {
@@ -982,8 +987,8 @@ body { background: #07100b; }
   border-color: rgba(201,164,90,.36);
 }
 .scard h3 { color: #fff; }
-.scard p,
-.rcard p { color: rgba(244,243,236,.78); }
+.scard p { color: rgba(244,243,236,.78); }
+.rcard p { color: var(--ink); }
 
 .services {
   background:
@@ -997,27 +1002,27 @@ body { background: #07100b; }
 
 .network {
   color: var(--on-dark);
-  background: #07100b;
+  background: var(--lux-navy);
 }
 .network::before {
   background:
-    linear-gradient(90deg, rgba(4,8,6,.78) 0%, rgba(4,8,6,.42) 36%, rgba(4,8,6,.06) 70%),
-    radial-gradient(circle at 18% 24%, rgba(4,8,6,.68) 0%, rgba(4,8,6,.32) 30%, rgba(4,8,6,0) 62%);
+    linear-gradient(90deg, rgba(3,8,19,.80) 0%, rgba(6,17,32,.44) 36%, rgba(6,17,32,.06) 70%),
+    radial-gradient(circle at 18% 24%, rgba(3,8,19,.70) 0%, rgba(6,17,32,.34) 30%, rgba(6,17,32,0) 62%);
 }
 .network::after {
   height: 46%;
-  background: linear-gradient(0deg, rgba(8,14,9,.82), rgba(8,14,9,0));
+  background: linear-gradient(0deg, rgba(3,8,19,.84), rgba(3,8,19,0));
 }
 .network__head .section-title { color: var(--on-dark); }
 .network__head p { color: rgba(244,243,236,.80); }
 
 .footer {
-  background: radial-gradient(circle at 18% 0%, rgba(201,164,90,.16), transparent 34%), linear-gradient(180deg, #050907, #0a0f0c);
+  background: radial-gradient(circle at 18% 0%, rgba(201,164,90,.16), transparent 34%), linear-gradient(180deg, #030813, #071120);
 }
 
 @media (max-width: 620px) {
   .hero__bg::after {
     background:
-      linear-gradient(180deg, rgba(3,7,5,.70) 0%, rgba(3,7,5,.30) 34%, rgba(3,7,5,.16) 58%, rgba(3,7,5,.68) 100%);
+      linear-gradient(180deg, rgba(3,8,19,.72) 0%, rgba(6,17,32,.32) 34%, rgba(6,17,32,.16) 58%, rgba(3,8,19,.70) 100%);
   }
 }
