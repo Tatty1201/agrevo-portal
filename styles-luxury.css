@@ -1043,10 +1043,8 @@ body { background: var(--lux-navy); }
     linear-gradient(180deg, var(--lux-navy-3), var(--lux-navy-2));
 }
 .contents::before {
-  background:
-    linear-gradient(180deg, rgba(6,17,32,.74), rgba(6,17,32,.84)),
-    url('assets/hero-white-greenhouse-layer-v1.png') right center / cover no-repeat;
-  opacity: .20;
+  background: url('assets/gold-flow-single-arc.png') bottom left / contain no-repeat;
+  opacity: .26;
 }
 .vision {
   background: var(--lux-navy-2);
