@@ -1095,8 +1095,20 @@ body { background: var(--lux-navy); }
 }
 
 @media (max-width: 620px) {
+  .hero {
+    min-height: clamp(1040px, 138vh, 1180px);
+    padding-bottom: 340px;
+  }
   .hero__bg::after {
     background:
       linear-gradient(180deg, rgba(3,8,19,.72) 0%, rgba(6,17,32,.32) 34%, rgba(6,17,32,.16) 58%, rgba(3,8,19,.70) 100%);
+  }
+  .hero__features {
+    bottom: 76px;
+    gap: 24px 14px;
+  }
+  .hero-feature {
+    font-size: .7rem;
+    line-height: 1.55;
   }
 }
