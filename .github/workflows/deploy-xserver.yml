@@ -1,0 +1,42 @@
+name: Deploy Luxury Site to Xserver
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Upload static files via FTPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Prepare Xserver package
+        run: |
+          rm -rf xserver-dist
+          mkdir -p xserver-dist
+          cp index-luxury.html xserver-dist/index.html
+          cp styles-luxury.css xserver-dist/styles-luxury.css
+          cp -R assets xserver-dist/assets
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("xserver-dist/index.html")
+          html = path.read_text(encoding="utf-8")
+          html = html.replace(
+              '<title>AGREVO Luxury Concept ｜ "農"にワクワクを</title>',
+              '<title>AGREVO ｜ "農"にワクワクを</title>',
+          )
+          path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Deploy to Xserver
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./xserver-dist/
+          server-dir: ${{ secrets.XSERVER_SERVER_DIR }}
+          log-level: standard
