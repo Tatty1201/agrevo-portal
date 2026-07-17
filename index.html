@@ -29,7 +29,8 @@
       <a href="#contents">コンテンツ</a>
       <a href="#network">全国ネットワーク</a>
       <a href="#recommend">導入事例</a>
-      <a class="btn btn--orange btn--sm header__cta" href="https://lin.ee/pdWLP3m" target="_blank" rel="noopener">無料相談する</a>
+      <a class="btn btn--orange btn--sm header__cta" href="https://lin.ee/pdWLP3m" target="_blank" rel="noopener">Contact</a>
+        <a class="btn btn--ghost-light btn--sm" href="amsi.html" data-popup="amsi">AMSI Guide</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="メニュー">
       <span></span><span></span><span></span>
@@ -51,6 +52,7 @@
       <div class="hero__cta">
         <a class="btn btn--gold" href="#services">プランを見る <span class="arr">→</span></a>
         <a class="btn btn--ghost-light" href="https://lin.ee/pdWLP3m" target="_blank" rel="noopener">無料相談する <span class="arr">→</span></a>
+        <a class="btn btn--ghost-light btn--sm" href="amsi.html" data-popup="amsi">AMSI Guide</a>
       </div>
     </div>
   </div>
@@ -441,6 +443,34 @@
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     nav.classList.remove('open'); toggle.classList.remove('open');
   }));
+
+  // Supplement page popup
+  const amsiLink = document.querySelector('[data-popup="amsi"]');
+  if (amsiLink) {
+    amsiLink.addEventListener('click', (event) => {
+      if (window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches) {
+        return;
+      }
+      event.preventDefault();
+      const width = 1120;
+      const height = 920;
+      const dualScreenLeft = window.screenLeft ?? window.screenX ?? 0;
+      const dualScreenTop = window.screenTop ?? window.screenY ?? 0;
+      const left = Math.max(0, dualScreenLeft + Math.round((window.innerWidth - width) / 2));
+      const top = Math.max(0, dualScreenTop + Math.round((window.innerHeight - height) / 2));
+      const popup = window.open(
+        amsiLink.href,
+        'amsiSupplement',
+        `popup=yes,width=${width},height=${height},left=${left},top=${top},scrollbars=yes,resizable=yes`
+      );
+      if (popup) {
+        popup.focus();
+      } else {
+        window.location.href = amsiLink.href;
+      }
+    });
+  }
+
 
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
